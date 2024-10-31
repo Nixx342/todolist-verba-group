@@ -1,17 +1,12 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    const loginStatus = localStorage.getItem('isLogin') === 'true';
-    setIsLogin(loginStatus);
-  }, []);
+  const [isLogin, setIsLogin] = useState(localStorage.getItem('isLogin') === "true");
 
   const handleLogin = () => {
     setIsLogin(true);

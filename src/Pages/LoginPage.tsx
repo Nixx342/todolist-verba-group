@@ -27,31 +27,34 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
     };
 
     return (
-        <div className="login-page">
-            <input 
-                type="text"
-                className="login-input"
-                placeholder="Login"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                onKeyDown={handleKeyDown}
-            />
-            <input 
-                type="password"
-                className="pass-input"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)} 
-                onKeyDown={handleKeyDown}
-            />
-            <button 
-                onClick={handleLogin}
-                className="login-btn"
-            >Войти</button>
-            {
-                showErr && <div className="err-msg">Неправильный логин или пароль</div>
-            }
+        <div className='login-page'>
+            <div className="login-area">
+                <input 
+                    type="text"
+                    className="login-input"
+                    placeholder="Login"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                />
+                <input 
+                    type="password"
+                    className="pass-input"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} 
+                    onKeyDown={handleKeyDown}
+                />
+                <button 
+                    onClick={handleLogin}
+                    className="login-btn"
+                >Войти</button>
+                {
+                    showErr && <div className="err-msg">Неправильный логин или пароль</div>
+                }
+            </div>
         </div>
+
     );
 };
 
