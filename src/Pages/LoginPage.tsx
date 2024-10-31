@@ -20,6 +20,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             setShowErr(true)
         }
     }
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+        if (event.key === "Enter") {
+          handleLogin();
+        } 
+    };
 
     return (
         <div className="login-page">
@@ -29,13 +34,15 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 placeholder="Login"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
             <input 
-                type="text"
+                type="password"
                 className="pass-input"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)} 
+                onKeyDown={handleKeyDown}
             />
             <button 
                 onClick={handleLogin}
